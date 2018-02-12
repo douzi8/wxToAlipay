@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha --recursive"
   },
+  "bin": {
+    "wxToalipay": "bin/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/douzi8/wxToAlipay.git"

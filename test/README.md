@@ -1,6 +1,9 @@
 ## app.json
 项目配置
 
+## page.json
+页面配置
+
 ## wxmlToAxml (模板转化规则介绍)
 1. ``ul``, ``li``, ``span``, ``a``, ``header``, ``footer``, ``del``标签不能在支付宝小程序里面使用
 ```
@@ -214,7 +217,7 @@ my.makePhoneCall({ number: '1340000' });
 8. require
 ```JavaScript
 let local = require('local')
-```JavaScript
+```
   转为支付宝小程序语法
 ```JavaScript
 let local = require('./local')
@@ -223,7 +226,7 @@ let local = require('./local')
 9. module.exports
 ```JavaScript
 module.exports = function () {}
-```JavaScript
+```
   转为支付宝小程序语法
 ```JavaScript
 export default function () {}

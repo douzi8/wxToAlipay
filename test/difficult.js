@@ -1,4 +1,3 @@
-var appConfig = require('../lib/app.json')
 var wxmlToAxml = require('../lib/wxml')
 var assert = require('assert')
 const path = require('path');
@@ -12,18 +11,12 @@ function writeFileSync(filepath, content) {
   return fs.writeFileSync(path.join(__dirname, filepath), content, { encoding: 'utf8' });
 }
 
-describe('资源路径替换', function() {
-  it('lechebang', () => {
-    let result = readFileSync('json/app.json')
-
-    writeFileSync('json/app.alipay.json', appConfig(result))
-  })
-
+describe('复杂情况', function() {
   it('image', () => {
     let code = `<image class="{{item.pictures.length == 1 ? 'show-one' : 'bg-cut show-img-wrap'}}" data-listindex="{{idx}}" wx:for="{{item.pictures}}" wx:for-item="pic" src="{{pic.thumbnailPath}}" catchtap="zoomAction" data-path="{{pic.thumbnailPath}}"  mode="scaleToFill"></image>`
     let result = wxmlToAxml(code)
 
-    writeFileSync('wxml/image.wxml', result)
+    writeFileSync('dest/image.wxml', result)
   })
   
 })

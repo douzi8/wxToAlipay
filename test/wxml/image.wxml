@@ -1,0 +1,1 @@
+<text data-listindex="{{idx}}" data-path="{{pic.thumbnailPath}}" class="alipay_catch_img" a:for="{{item.pictures}}" a:for-item="pic" catchTap="zoomAction"><image class="{{item.pictures.length == 1 ? 'show-one' : 'bg-cut show-img-wrap'}}" src="{{pic.thumbnailPath}}" mode="scaleToFill"/></text>
