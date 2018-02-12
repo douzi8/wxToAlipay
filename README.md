@@ -49,7 +49,7 @@ new wxToalipay({
 1. 转化现在只测试了``乐车邦微信小程序``, 如有bug，请提issue
 1. 部分不能转化的问题，需要源码里面做处理，主要表现在``js``文件
 1. 打包之前，会对源码进行代码校验，校验通过才能打包
-1. 部分微信小程序没法转化, 需自行处理
+1. 部分微信小程序特性没法转化, 需自行处理
 - [自定义组件](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)
 - [web-view](https://mp.weixin.qq.com/debug/wxadoc/dev/component/web-view.html)
 - [wxs](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxs/)
