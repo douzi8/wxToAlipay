@@ -118,7 +118,41 @@ module.exports.message = msg;
 ```
 
 ## Javascript
-1. ``wx.``统一转化成``my.``
+1. 字符串``wxMin``统一替换为``alipay``, 部分不能替换的情况，可以采取在源码这样写代码打标记
+```JavaScript
+let options = {
+  url: 'https://m.lechebang.com/',
+}
+
+if ('alipay' === 'wxMin') {
+  options.headers = {
+    'content-type': 'application/json'
+  }
+  options.data = JSON.stringify(data)
+} else {
+  options.header = {
+    'content-type': 'application/json'
+  }
+  options.data = data
+}
+wx.request(options)
+```
+  转为支付宝小程序语法
+```JavaScript
+if ('alipay' === 'alipay') {
+  options.headers = {
+    'content-type': 'application/json'
+  }
+  options.data = JSON.stringify(data)
+} else {
+  options.header = {
+    'content-type': 'application/json'
+  }
+  options.data = data
+}
+my.httpRequest(options)
+```
+2. ``wx.``统一转化成``my.``
 ```JavaScript
 wx.api
 ```
@@ -127,7 +161,7 @@ wx.api
 my.api
 ```
 
-2. getStorageSync, setStorageSync, removeStorageSync, getStorageInfoSync
+3. getStorageSync, setStorageSync, removeStorageSync, getStorageInfoSync
 ```JavaScript
 wx.getStorageSync(key)
 
@@ -144,3 +178,35 @@ my.setStorageSync({
   data: result
 })
 ```
+
+4. wx.request
+```JavaScript
+wx.request({
+  header: {
+
+  }
+})
+```
+  转为支付宝小程序语法
+```JavaScript
+my.httpRequest({
+  headers: {
+  }
+})
+```
+5. wx.setNavigationBarTitle, wx.setNavigationBarColor  
+替换为``my.setNavigationBar``
+
+6. wx.makePhoneCall
+```JavaScript
+wx.makePhoneCall({
+  phoneNumber: '1340000' //仅为示例，并非真实的电话号码
+})
+```
+  转为支付宝小程序语法
+```JavaScript
+my.makePhoneCall({ number: '1340000' });
+```
+
+7. wx.previewImage (无法自动转化参数)
+代码统一封装这个API
