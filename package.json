@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/douzi8/wxToAlipay#readme",
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "file-system": "^2.2.2",
     "htmldom": "^3.0.0",
     "uglify-js": "^3.3.10"
   }

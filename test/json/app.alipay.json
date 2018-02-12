@@ -1,0 +1,100 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/my/index",
+    "pages/index/car_info/index",
+    "pages/city/index",
+    "pages/xiche/index/index",
+    "pages/xiche/order_detail/index",
+    "pages/xiche/order_result/index",
+    "pages/xiche/discount/index",
+    "pages/xiche/charge/index",
+    "pages/jiayou/index/index",
+    "pages/jiayou/order_detail/index",
+    "pages/jiayou/recharge_card/index",
+    "pages/jiayou/add_card/index",
+    "pages/jiayou/recharge_record/index",
+    "pages/jiayou/book_discount/index",
+    "pages/jiayou/order_result/index",
+    "pages/sys/webview/index",
+    "pages/sys/login/index",
+    "pages/sys/payment/index",
+    "pages/webapp/car_maintenance/index",
+    "pages/webapp/car_oil/index",
+    "pages/webapp/shop_plan/index",
+    "pages/webapp/car_select/index",
+    "pages/webapp/car_brand/index",
+    "pages/webapp/car_brandtwo/index",
+    "pages/webapp/car_maintenancemanual/index",
+    "pages/webapp/shop_detail/index",
+    "pages/webapp/shop_list/index",
+    "pages/webapp/shop_calendar/index",
+    "pages/webapp/book/index",
+    "pages/webapp/book_discount/index",
+    "pages/webapp/order_result/index",
+    "pages/webapp/order_detail/index",
+    "pages/webapp/order_confirm/index",
+    "pages/assist/index/index",
+    "pages/assist/book/index",
+    "pages/assist/car_brand/index",
+    "pages/assist/car_brandtwo/index",
+    "pages/assist/car_info/index",
+    "pages/assist/order_result/index",
+    "pages/assist/order_detail/index",
+    "pages/assist/address_map/index",
+    "pages/assist/address_search/index",
+    "pages/assist/car_select/index",
+    "pages/assist/discount/index",
+    "pages/my/order/index",
+    "pages/my/user_discount/index",
+    "pages/activity/invite/index",
+    "pages/activity/invite/rule/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "乐车邦",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f4f4f8"
+  },
+  "tabBar": {
+    "textColor": "#333",
+    "selectedColor": "#fa5a4b",
+    "backgroundColor": "#f7f7f7",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "icon": "img/tabbar/home.png",
+        "activeIcon": "img/tabbar/home02.png",
+        "name": "首页"
+      },
+      {
+        "pagePath": "pages/index/car_info/index",
+        "icon": "img/tabbar/maintain.png",
+        "activeIcon": "img/tabbar/maintain02.png",
+        "name": "4S店保养"
+      },
+      {
+        "pagePath": "pages/xiche/index/index",
+        "icon": "img/tabbar/clean.png",
+        "activeIcon": "img/tabbar/clean02.png",
+        "name": "特惠洗车"
+      },
+      {
+        "pagePath": "pages/jiayou/index/index",
+        "icon": "img/tabbar/oil.png",
+        "activeIcon": "img/tabbar/oil02.png",
+        "name": "加油充值"
+      },
+      {
+        "pagePath": "pages/index/my/index",
+        "icon": "img/tabbar/my.png",
+        "activeIcon": "img/tabbar/my02.png",
+        "name": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/my/index",
+    "pages/index/car_info/index",
+    "pages/city/index",
+    "pages/xiche/index/index",
+    "pages/xiche/order_detail/index",
+    "pages/xiche/order_result/index",
+    "pages/xiche/discount/index",
+    "pages/xiche/charge/index",
+    "pages/jiayou/index/index",
+    "pages/jiayou/order_detail/index",
+    "pages/jiayou/recharge_card/index",
+    "pages/jiayou/add_card/index",
+    "pages/jiayou/recharge_record/index",
+    "pages/jiayou/book_discount/index",
+    "pages/jiayou/order_result/index",
+    "pages/sys/webview/index",
+    "pages/sys/login/index",
+    "pages/sys/payment/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "乐车邦",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f4f4f8"
+  },
+  "tabBar": {
+    "backgroundColor": "#f7f7f7",
+    "borderStyle": "black",
+    "color": "#333",
+    "selectedColor": "#fa5a4b",
+    "list": [
+      {
+        "iconPath": "img/tabbar/home.png",
+        "selectedIconPath": "img/tabbar/home02.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "img/tabbar/maintain.png",
+        "selectedIconPath": "img/tabbar/maintain02.png",
+        "pagePath": "pages/index/car_info/index",
+        "text": "4S店保养"
+      },
+      {
+        "iconPath": "img/tabbar/clean.png",
+        "selectedIconPath": "img/tabbar/clean02.png",
+        "pagePath": "pages/xiche/index/index",
+        "text": "特惠洗车"
+      },
+      {
+        "iconPath": "img/tabbar/oil.png",
+        "selectedIconPath": "img/tabbar/oil02.png",
+        "pagePath": "pages/jiayou/index/index",
+        "text": "加油充值"
+      },
+      {
+        "iconPath": "img/tabbar/my.png",
+        "selectedIconPath": "img/tabbar/my02.png",
+        "pagePath": "pages/index/my/index",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/webapp/",
+      "pages": [
+        "car_maintenance/index",
+        "car_oil/index",
+        "shop_plan/index",
+        "car_select/index",
+        "car_brand/index",
+        "car_brandtwo/index",
+        "car_maintenancemanual/index",
+        "shop_detail/index",
+        "shop_list/index",
+        "shop_calendar/index",
+        "book/index",
+        "book_discount/index",
+        "order_result/index",
+        "order_detail/index",
+        "order_confirm/index"
+      ]
+    },
+    {
+      "root": "pages/assist/",
+      "pages": [
+        "index/index",
+        "book/index",
+        "car_brand/index",
+        "car_brandtwo/index",
+        "car_info/index",
+        "order_result/index",
+        "order_detail/index",
+        "address_map/index",
+        "address_search/index",
+        "car_select/index",
+        "discount/index"
+      ]
+    },
+    {
+      "root": "pages/my/",
+      "pages": [
+        "order/index",
+        "user_discount/index"
+      ]
+    },
+    {
+      "root": "pages/activity/",
+      "pages": [
+        "invite/index",
+        "invite/rule/index"
+      ]
+    }
+  ],
+  "networkTimeout": {
+    "request": 10000
+  }
+}
