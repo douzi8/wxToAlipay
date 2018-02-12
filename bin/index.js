@@ -32,6 +32,12 @@ if (params.filter) {
   params.filter = params.filter.split(',')
 }
 
+if (params.callback) {
+  let callbackPath = require(path.join(params.src, params.callback))
+
+  params.callback = callbackPath
+}
+
 
 console.log(`打包参数`)
 console.log(params)

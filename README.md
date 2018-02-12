@@ -9,6 +9,15 @@ wxToalipay --src={{小程序源码目录}} --dest={{支付宝小程序目录,可
 
 // 排除部分资源
 wxToalipay --src=/weixin/min --filter="!lizard/package/*,!lizard/Gruntfile.js"
+
+// 定制回调, 在框架处理好后，在对每个文件进行处理
+wxToalipay --src=/weixin/min --callback="wxToAlipay.js"
+```
+wxToAlipay.js定制
+```JavaScript
+module.exports = function (contents, relative) {
+  return contents
+}
 ```
 
 
