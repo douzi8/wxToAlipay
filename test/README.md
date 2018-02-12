@@ -120,9 +120,27 @@ module.exports.message = msg;
 ## Javascript
 1. ``wx.``统一转化成``my.``
 ```JavaScript
-wx.makePhoneCall
+wx.api
 ```
   转为支付宝小程序语法
 ```JavaScript
-my.makePhoneCall
+my.api
+```
+
+2. getStorageSync, setStorageSync, removeStorageSync, getStorageInfoSync
+```JavaScript
+wx.getStorageSync(key)
+
+wx.setStorageSync(key, result)
+```
+  转为支付宝小程序语法
+```JavaScript
+my.getStorageSync({
+    key: key
+}).data
+
+my.setStorageSync({
+  key: key,
+  data: result
+})
 ```

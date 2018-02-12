@@ -1,6 +1,9 @@
 # wxToAlipay
 微信小程序转支付宝小程序
 
+## 语法转化规则
+1. [README.md](https://github.com/douzi8/wxToAlipay/tree/master/test)
+
 ## 注意事项
 1. 微信小程序源码必须能在微信环境运行，转化是基于微信小程序源码
 1. 转化现在只测试了``乐车邦微信小程序``, 如有bug，请提issue
