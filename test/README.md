@@ -210,3 +210,21 @@ my.makePhoneCall({ number: '1340000' });
 
 7. wx.previewImage (无法自动转化参数)
 代码统一封装这个API
+
+8. require
+```JavaScript
+let local = require('local')
+```JavaScript
+  转为支付宝小程序语法
+```JavaScript
+let local = require('./local')
+```
+
+9. module.exports
+```JavaScript
+module.exports = function () {}
+```JavaScript
+  转为支付宝小程序语法
+```JavaScript
+export default function () {}
+```
