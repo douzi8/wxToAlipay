@@ -1,0 +1,25 @@
+{
+  "name": "wx-alipay",
+  "version": "0.0.1",
+  "description": "微信小程序转化为支付宝小程序",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douzi8/wxToAlipay.git"
+  },
+  "keywords": [
+    "微信小程序"
+  ],
+  "author": "douzi <liaowei@lechebang.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/douzi8/wxToAlipay/issues"
+  },
+  "homepage": "https://github.com/douzi8/wxToAlipay#readme",
+  "dependencies": {
+    "htmldom": "^3.0.0"
+  }
+}
