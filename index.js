@@ -63,9 +63,7 @@ function wxToalipay ({
       let ext = getFileExt(relative)
       let destFilepath
 
-      if (relative === 'app.json') {
-        contents = appJson(contents)
-      }
+
 
 
       switch (ext) {
@@ -81,7 +79,11 @@ function wxToalipay ({
           contents = wxmlToAxml(contents)
           break
         case 'json':
-          contents = pageJson(contents)
+          if (relative === 'app.json') {
+            contents = appJson(contents)
+          } else {
+            contents = pageJson(contents)
+          }
       }
 
       if (callback) {
