@@ -51,11 +51,8 @@
     "pages/activity/invite/rule/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "乐车邦",
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#f4f4f8"
+    "titleBarColor": "#fff",
+    "defaultTitle": "乐车邦"
   },
   "tabBar": {
     "textColor": "#333",

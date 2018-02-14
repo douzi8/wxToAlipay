@@ -1,4 +1,5 @@
 var appConfig = require('../lib/app.json')
+var pageConfig = require('../lib/page.json')
 var wxmlToAxml = require('../lib/wxml')
 var assert = require('assert')
 const path = require('path');
@@ -19,11 +20,9 @@ describe('资源路径替换', function() {
     writeFileSync('json/app.alipay.json', appConfig(result))
   })
 
-  it('image', () => {
-    let code = `<image class="{{item.pictures.length == 1 ? 'show-one' : 'bg-cut show-img-wrap'}}" data-listindex="{{idx}}" wx:for="{{item.pictures}}" wx:for-item="pic" src="{{pic.thumbnailPath}}" catchtap="zoomAction" data-path="{{pic.thumbnailPath}}"  mode="scaleToFill"></image>`
-    let result = wxmlToAxml(code)
+  it('page', () => {
+    let result = readFileSync('json/page.json')
 
-    writeFileSync('wxml/image.wxml', result)
+    writeFileSync('json/page.alipay.json', pageConfig(result))
   })
-  
 })
