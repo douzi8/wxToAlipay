@@ -97,6 +97,8 @@ module.exports.message = msg;
 <view>{{time}}</view>
 ```
 
+8. placeholder-style
+
 ## wxssToAcss (样式文件转化规则)
 1. import路径替换
 ```css
@@ -121,6 +123,10 @@ module.exports.message = msg;
 ```
 
 ## Javascript
+babylon
+babel-traverse
+babel-generator
+
 1. 字符串``wxMin``统一替换为``alipay``, 部分不能替换的情况，可以采取在源码这样写代码打标记
 ```JavaScript
 let options = {
