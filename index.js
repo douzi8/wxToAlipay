@@ -1,8 +1,8 @@
-const wxmlToAxml = require('./lib/wxml')
-const wxssToAcss = require('./lib/wxss')
-const jsToAli = require('./lib/js.ast')
-const appJson = require('./lib/app.json')
-const pageJson = require('./lib/page.json')
+const wxmlToAxml = require('./lib/wxml/index')
+const wxssToAcss = require('./lib/wxss/index')
+const jsToAli = require('./lib/js/index')
+const appJson = require('./lib/json/app')
+const pageJson = require('./lib/json/page')
 const fs = require('file-system')
 const path = require('path')
 
@@ -26,6 +26,40 @@ function getDest (src) {
   return paths.join(path.sep) 
 }
 
+function jsToAliHelp (relative, code) {
+  let destPath = path.relative(relative, 'myPolyfill.js').replace('../', '')
+
+  // 追加polyfill
+   code = `var _myPolyfill = require('${destPath}')
+   ${code}
+   `
+
+  code = jsToAli(code)
+
+  return code
+}
+
+// 复制polyfill到根目录
+function copyPolyFill (dest) {
+  console.log('复制polyfill到根目录')
+
+  const babel = require("babel-core")
+
+  fs.copyFileSync('./lib/js/polyfill.js', path.join(dest, 'myPolyfill.js'), {
+    process: function(contents) {
+      // 第一次批量处理
+      contents =  babel.transform(contents, {
+          presets: [
+            ['es2015',  { modules: false }]
+          ],
+          comments: false,
+
+      }).code
+  
+      return contents;
+    }
+  });
+}
 
 function wxToalipay ({
   src,
@@ -63,16 +97,13 @@ function wxToalipay ({
       let ext = getFileExt(relative)
       let destFilepath
 
-
-
-
       switch (ext) {
         case 'wxss':
           destFilepath = path.join(dest, relative.replace(/\.wxss$/, '.acss')),
           contents = wxssToAcss(contents)
           break
         case 'js':
-          contents = jsToAli(contents)
+          contents = jsToAliHelp(relative, contents)
           break
         case 'wxml':
           destFilepath = path.join(dest, relative.replace(/\.wxml$/, '.axml')),
@@ -101,6 +132,8 @@ function wxToalipay ({
       return contents
     }
   });
+
+  copyPolyFill(dest)
 }
 
 module.exports = wxToalipay

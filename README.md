@@ -55,23 +55,11 @@ new wxToalipay({
 - [wxs](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxs/)
 
 ## 语法转化规则
-1. [README.md](https://github.com/douzi8/wxToAlipay/blob/master/test/README.md)
+1. [js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/README.md)
+1. [json](https://github.com/douzi8/wxToAlipay/blob/master/lib/json/README.md)
+1. [wxml](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxml/README.md)
+1. [wxss](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxss/README.md)
 
-## wxml转化注意
-
-## js转化注意
-1. wx.request不能完全转化, 建议代码统一封装这个方法
-```JavaScript
-function request (options) {
-  if ('alipay' === 'wxMin') {
-    options.data = JSON.stringify(data)
-  } else {
-    options.data = data
-  }
-
-  wx.request(options)
-}
-```
 
 
 ## 乐车邦微信小程序
