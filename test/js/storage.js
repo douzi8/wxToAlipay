@@ -1,4 +1,4 @@
-var jsToAlipay = require('../../lib/js.ast')
+var jsToAlipay = require('../../lib/js/index')
 var assert = require('assert')
 
 describe('storage', function() {

@@ -1,4 +1,4 @@
-var wxssToAcss = require('../../lib/wxss')
+var wxssToAcss = require('../../lib/wxss/index')
 var assert = require('assert')
 
 describe('import', function() {

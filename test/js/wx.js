@@ -1,4 +1,4 @@
-var jsToAlipay = require('../../lib/js.ast')
+var jsToAlipay = require('../../lib/js/index')
 var assert = require('assert')
 
 describe('wx', function() {
@@ -13,7 +13,7 @@ describe('wx', function() {
     let code = `wx.makePhoneCall(options)`
     let result = jsToAlipay(code)
 
-    assert.equal(result, `my.makePhoneCall(options);`);
+    assert.equal(result, `my.makePhoneCall(_myPolyfill.makePhoneCall(options));`);
   })
 
   it('字符串替换', () => {

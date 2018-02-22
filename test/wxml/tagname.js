@@ -1,4 +1,4 @@
-var wxmlToAxml = require('../../lib/wxml')
+var wxmlToAxml = require('../../lib/wxml/index')
 var assert = require('assert')
 
 describe('标签名替换', function() {

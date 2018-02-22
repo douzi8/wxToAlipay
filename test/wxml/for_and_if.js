@@ -1,4 +1,4 @@
-var wxmlToAxml = require('../../lib/wxml')
+var wxmlToAxml = require('../../lib/wxml/index')
 var assert = require('assert')
 
 describe('资源路径替换', function() {

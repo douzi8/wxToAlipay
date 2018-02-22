@@ -64,54 +64,13 @@ new wxToalipay({
 ```JavaScript
 function request (options) {
   if ('alipay' === 'wxMin') {
-    options.headers = {
-      'content-type': 'application/json'
-    }
     options.data = JSON.stringify(data)
   } else {
-    options.header = {
-      'content-type': 'application/json'
-    }
     options.data = data
   }
 
   wx.request(options)
 }
-```
-2. wx.previewImage 无法自动转化参数, 建议代码统一封装这个方法
-```JavaScript
-function previewImage (options) {
-  if ('alipay' === 'wxMin') {
-    let current = options.current
-    
-    if (current) {
-      current = options.urls.indexOf(current)
-    }
-
-    if (current === -1 || !current) {
-      current = 0
-    }
-
-    options.current = current
-  }
-
-
-  return new Promise((resolve, reject) => {
-    options.success = resolve
-    options.fail = reject
-    wx.previewImage(options)
-  })
-}
-```
-
-3. wx.getSystemInfo参数不一致，需自行处理
-```JavaScript
-wx.getSystemInfo({
-  success (res) {
-    // 不同平台返回的结果不一致
-    res.system
-  }
-})
 ```
 
 
