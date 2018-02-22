@@ -11,21 +11,17 @@ if ('alipay' === 'wxMin') {
 } else {
   options.data = data
 }
+
 wx.request(options)
 ```
   转为支付宝小程序语法
 ```JavaScript
 if ('alipay' === 'alipay') {
-  options.headers = {
-    'content-type': 'application/json'
-  }
   options.data = JSON.stringify(data)
 } else {
-  options.header = {
-    'content-type': 'application/json'
-  }
   options.data = data
 }
+
 my.httpRequest(options)
 ```
 2. ``wx.``统一转化成``my.``
@@ -100,6 +96,15 @@ wx.getSystemInfo(options)
   转为支付宝小程序语法
 ```JavaScript
 my.getSystemInfo(_myPolyfill.getSystemInfo(options));
+```
+
+10. getSystemInfoSync
+```JavaScript
+var res = wx.getSystemInfoSync()
+```
+  转为支付宝小程序语法
+```JavaScript
+var res = _myPolyfill.getSystemInfoSync(my.getSystemInfoSync())
 ```
 
 10. wx.showModal
