@@ -101,3 +101,12 @@ wx.getSystemInfo(options)
 ```JavaScript
 my.getSystemInfo(_myPolyfill.getSystemInfo(options));
 ```
+
+10. wx.showModal
+```
+wx.showModal(options)
+```
+  转为支付宝小程序语法
+```JavaScript
+_myPolyfill.showModal(options);
+```
