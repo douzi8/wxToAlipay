@@ -7,14 +7,8 @@ let options = {
 }
 
 if ('alipay' === 'wxMin') {
-  options.headers = {
-    'content-type': 'application/json'
-  }
   options.data = JSON.stringify(data)
 } else {
-  options.header = {
-    'content-type': 'application/json'
-  }
   options.data = data
 }
 wx.request(options)
