@@ -16,16 +16,16 @@
 <view wx:for="{{item}}" wx:key="{{id}}">
 </view>
 ```
+2. 不支持``a``, ``del``标签
 
 ## wxmlToAxml (模板转化规则介绍)
-1. ``ul``, ``li``, ``span``, ``a``, ``header``, ``footer``, ``del``标签不能在支付宝小程序里面使用
+1. ``ul``, ``li``, ``span``, ``header``, ``footer``标签不能在支付宝小程序里面使用
 ```
 ul       ==> view.alipay_ul    (标签名.类名)
 li       ==> view.alipay_li
 span     ==> text.alipay_span
 header   ==> view.alipay_header
 footer   ==> view.alipay_footer
-// a, del无法替换，源码不能出现
 ```
 
 2. 资源.wxml替换成.axml
