@@ -1,3 +1,22 @@
+## 校验规则
+1. ``wx:key``
+参考[微信小程序文档](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/list.html),注意wx:key的值是对应到当前wx:for里面的循环项目的属性或者``*this``
+```html
+<!-- code对应numberArray某项属性 -->
+<view wx:for="{{numberArray}}" wx:key="code">
+  <!-- id对应item某项属性 --> 
+  <view wx:for="{{item}}" wx:key="id">
+  </view>
+</view>
+
+<!-- 错误写法 -->
+<view wx:for="{{item}}" wx:key="item.id">
+</view>
+<!-- 错误写法 -->
+<view wx:for="{{item}}" wx:key="{{id}}">
+</view>
+```
+
 ## wxmlToAxml (模板转化规则介绍)
 1. ``ul``, ``li``, ``span``, ``a``, ``header``, ``footer``, ``del``标签不能在支付宝小程序里面使用
 ```

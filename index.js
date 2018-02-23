@@ -99,15 +99,20 @@ function wxToalipay ({
 
       switch (ext) {
         case 'wxss':
-          destFilepath = path.join(dest, relative.replace(/\.wxss$/, '.acss')),
+          destFilepath = path.join(dest, relative.replace(/\.wxss$/, '.acss'));
           contents = wxssToAcss(contents)
           break
         case 'js':
           contents = jsToAliHelp(relative, contents)
           break
         case 'wxml':
-          destFilepath = path.join(dest, relative.replace(/\.wxml$/, '.axml')),
-          contents = wxmlToAxml(contents)
+          destFilepath = path.join(dest, relative.replace(/\.wxml$/, '.axml'));
+          try {
+            contents = wxmlToAxml(contents)
+          } catch (e) {
+            throw new Error(`文件${relative}: ${e.message}`)
+          }
+          
           break
         case 'json':
           if (relative === 'app.json') {
