@@ -104,6 +104,7 @@ module.exports.message = msg;
 <wxs src="../../widget/filter.wxs" module="filter" />
 
 <view>{{filter.date(time, 'yyyy-mm-dd')}}</view>
+<view data-price="{{price}}">{{filter.priceCent(price, 'yyyy-mm-dd')}}</view>
 ```
   转为支付宝小程序语法
 ```html

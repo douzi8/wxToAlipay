@@ -1,5 +1,5 @@
 # wxToAlipay
-微信小程序转支付宝小程序
+[微信小程序](https://mp.weixin.qq.com/debug/wxadoc/dev/index.html?t=201828)转[支付宝小程序](https://docs.alipay.com/mini/developer/getting-started)
 
 ## 命令行打包
 ```
@@ -33,7 +33,7 @@ wxToalipay({
   dest: '/Users/liaowei/Documents/code/weixin/all_alipay',
   // 可缺省,数组, 排除资源
   filter: [
-    '!lizard/package/*',
+    '!lizard/package/**/*',
   ],
   // 可缺省, 可在框架处理好后，在对每个文件进行处理
   callback (contents, relative) {

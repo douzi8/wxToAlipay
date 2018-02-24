@@ -39,6 +39,26 @@ function jsToAliHelp (relative, code) {
   return code
 }
 
+function printWarn (warn) {
+  let msg = '-----打包警告信息:-----\n'
+
+  for (let key in warn) {
+    let result = warn[key]
+
+    if (result.length) {
+      msg += `文件目录${key}:\n`
+      result.forEach((item, index) => {
+        msg += `${index + 1}. ${item}\n`
+      })
+    }
+  }
+
+  if (msg.length > 20) {
+    msg += `wxml校验文档: https://github.com/douzi8/wxToAlipay/tree/master/lib/wxml`
+    console.warn(msg)
+  }
+}
+
 // 复制polyfill到根目录
 function copyPolyFill (dest, callback) {
   console.log('复制polyfill到根目录')
@@ -84,13 +104,16 @@ function wxToalipay ({
 
   filter = [
     '**/*.{js,wxss,wxml, wxs,json, svg, png, jpg}',
-    '!node_modules/*',
+    '!node_modules/**/*',
   ].concat(filter)
 
   // 删除dest
   if (fs.existsSync(dest)) {
     fs.rmdirSync(dest)
   }
+
+  // 警告信息
+  let warn = {}
 
   fs.copySync(src, dest, { 
     noProcess: '**/*.{jpg, png, svg}',
@@ -99,6 +122,8 @@ function wxToalipay ({
       console.log(`正在打包 ${relative}`)
       let ext = getFileExt(relative)
       let destFilepath
+
+      warn[relative] = []
 
       switch (ext) {
         case 'wxss':
@@ -110,12 +135,7 @@ function wxToalipay ({
           break
         case 'wxml':
           destFilepath = path.join(dest, relative.replace(/\.wxml$/, '.axml'));
-          try {
-            contents = wxmlToAxml(contents)
-          } catch (e) {
-            throw new Error(`文件${relative}: ${e.message}`)
-          }
-          
+          contents = wxmlToAxml(contents, warn[relative])
           break
         case 'json':
           if (relative === 'app.json') {
@@ -142,6 +162,8 @@ function wxToalipay ({
   });
 
   copyPolyFill(dest, callback)
+
+  printWarn(warn)
 }
 
 module.exports = wxToalipay
