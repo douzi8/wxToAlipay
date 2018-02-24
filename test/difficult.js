@@ -18,5 +18,12 @@ describe('复杂情况', function() {
 
     writeFileSync('dest/image.wxml', result)
   })
+
+  it('picker-view', () => {
+    let code = readFileSync('wxml/picker-view.wxml')
+    let result = wxmlToAxml(code)
+
+    writeFileSync('dest/picker-view.wxml', result)
+  })
   
 })

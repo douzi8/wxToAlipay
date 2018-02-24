@@ -1,0 +1,7 @@
+<picker-view class="ui-scroll-select">
+  <picker-view-column wx:for="{{scrollListGroup}}" wx:key="index">
+    <view wx:for="{{item}}" wx:for-item="child" class="ui-select-item" wx:key="value">
+      <text>{{child.text}}</text>
+    </view>
+  </picker-view-column>
+</picker-view>

@@ -111,3 +111,21 @@ module.exports.message = msg;
 ```
 
 8. placeholder-style
+
+9. picker-view
+picker-view组件在支付宝小程序里面有默认样式，如果自己定义了样式，可能会有问题
+```html
+<picker-view class="ui-scroll-select">
+  <picker-view-column wx:for="{{scrollListGroup}}" wx:key="index">
+    <view wx:for="{{item}}" wx:for-item="child" class="ui-select-item" wx:key="value">{{child.text}}</view>
+  </picker-view-column>
+</picker-view>
+```
+  转为支付宝小程序语法
+```html
+<picker-view class="alipay_picker_view">
+  <picker-view-column wx:for="{{scrollListGroup}}" wx:key="index">
+    <view class="alipay_picker_view_item" wx:for="{{item}}" wx:for-item="child" wx:key="value">{{child.text}}</view>
+  </picker-view-column>
+</picker-view>
+```

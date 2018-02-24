@@ -1,0 +1,7 @@
+<picker-view class="alipay_picker_view">
+  <picker-view-column a:for="{{scrollListGroup}}" a:key="index">
+    <view class="alipay_picker_view_item" a:for="{{item}}" a:for-item="child" a:key="value">
+      <text>{{child.text}}</text>
+    </view>
+  </picker-view-column>
+</picker-view>

@@ -29,6 +29,6 @@
     "babel-preset-es2015": "^6.24.1",
     "cssdom": "^1.0.21",
     "file-system": "^2.2.2",
-    "htmldom": "^3.0.1"
+    "htmldom": "^3.0.2"
   }
 }
