@@ -3,7 +3,7 @@ var assert = require('assert')
 
 describe('require', function() {
   it('纯名字', () => {
-    let code = `const dateFormat = require('dateFormat')`
+    let code = `var dateFormat = require('dateFormat')`
     let result = jsToAlipay(code)
 
     assert.equal(result, `var dateFormat = require('./dateFormat');`);

@@ -49,11 +49,10 @@ function copyPolyFill (dest, callback) {
     process: function(contents) {
       // 第一次批量处理
       contents =  babel.transform(contents, {
-          presets: [
-            ['es2015',  { modules: false }]
-          ],
-          comments: false,
-
+        presets: [
+          ['es2015',  { modules: false }]
+        ],
+        comments: false,
       }).code
 
       if (callback) {
