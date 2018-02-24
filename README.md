@@ -27,7 +27,7 @@ npm install wx-alipay --save
 ```JavaScript
 const wxToalipay = require('wx-alipay')
 
-new wxToalipay({
+wxToalipay({
   src: '/Users/liaowei/Documents/code/weixin/all',
   // 可缺省
   dest: '/Users/liaowei/Documents/code/weixin/all_alipay',
