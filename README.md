@@ -20,7 +20,6 @@ module.exports = function (contents, relative) {
 }
 ```
 
-
 ## 模块化打包
 ```
 npm install wx-alipay --save
@@ -60,11 +59,13 @@ new wxToalipay({
 1. [wxml](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxml/README.md)
 1. [wxss](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxss/README.md)
 
-
+## 插件
+1. 主要使用bable插件完成Js语法替换，参考[babel-types](https://github.com/jamiebuilds/babel-types), [babel-template](https://github.com/babel/babel/tree/master/packages/babel-template), [babel-generator](https://github.com/babel/babel/tree/master/packages/babel-generator), [babel-traverse](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-traverse) 
+1. [htmldom](https://github.com/douzi8/htmldom)完成wxml语法替换
+1. [file-system](https://github.com/douzi8/file-system)操作文件
 
 ## 乐车邦微信小程序
 ![微信小程序](https://raw.githubusercontent.com/douzi8/wxToAlipay/master/demo/lechebang.wx.jpg)
-
 
 ## 乐车邦支付宝小程序
 正在开发中...

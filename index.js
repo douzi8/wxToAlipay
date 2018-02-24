@@ -40,7 +40,7 @@ function jsToAliHelp (relative, code) {
 }
 
 // 复制polyfill到根目录
-function copyPolyFill (dest) {
+function copyPolyFill (dest, callback) {
   console.log('复制polyfill到根目录')
 
   const babel = require("babel-core")
@@ -55,6 +55,10 @@ function copyPolyFill (dest) {
           comments: false,
 
       }).code
+
+      if (callback) {
+        contents = callback(contents, 'polyfill.js')
+      }
   
       return contents;
     }
@@ -138,7 +142,7 @@ function wxToalipay ({
     }
   });
 
-  copyPolyFill(dest)
+  copyPolyFill(dest, callback)
 }
 
 module.exports = wxToalipay

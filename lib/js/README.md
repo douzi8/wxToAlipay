@@ -1,5 +1,19 @@
 ## Javascript
-主要使用bable插件完成Js语法替换，参考[babel-types](https://github.com/jamiebuilds/babel-types), [babel-template](https://github.com/babel/babel/tree/master/packages/babel-template), [babel-generator](https://github.com/babel/babel/tree/master/packages/babel-generator), [babel-traverse](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-traverse)
+``注意:`` 由于小程序之间的API不是完全对等, 打包会强制在支付宝小程序根目录生成一个[myPolyfill](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/polyfill.js)模块用于处理小程序参数的映射
+```JavaScript
+module.exports = {
+  previewImage,
+  makePhoneCall,
+  request,
+  getSystemInfo,
+  getSystemInfoSync,
+  showModal,
+  showToast,
+  showActionSheet
+  // ...
+}
+```
+
 1. 字符串``wxMin``统一替换为``alipay``, 部分不能替换的情况，可以采取在源码这样写代码打标记
 ```JavaScript
 let options = {
@@ -107,11 +121,29 @@ var res = wx.getSystemInfoSync()
 var res = _myPolyfill.getSystemInfoSync(my.getSystemInfoSync())
 ```
 
-10. wx.showModal
+11. wx.showModal
 ```
 wx.showModal(options)
 ```
   转为支付宝小程序语法
 ```JavaScript
 _myPolyfill.showModal(options);
+```
+
+12. wx.showToast
+```
+wx.showToast(options)
+```
+  转为支付宝小程序语法
+```JavaScript
+my.showToast(_myPolyfill.showToast(options))
+```
+
+13. wx.showActionSheet
+```
+wx.showActionSheet(options)
+```
+  转为支付宝小程序语法
+```JavaScript
+my.showActionSheet(_myPolyfill.showActionSheet(options))
 ```
