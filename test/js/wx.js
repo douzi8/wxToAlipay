@@ -22,4 +22,27 @@ describe('wx', function() {
 
     assert.equal(result, `'alipay' === 'alipay';`);
   })
+
+  it('全局替换', () => {
+    let code = `Object.keys(wx)`
+    let result = jsToAlipay(code)
+    
+
+    assert.equal(result, `Object.keys(my);`);
+
+    let code2 = `var wx ={};Object.keys(wx)`
+    let result2 = jsToAlipay(code2)
+
+    assert.equal(result2, `var wx = {};Object.keys(wx);`);
+
+    let code3 = `a.wx;`
+    let result3 = jsToAlipay(code3)
+
+    assert.equal(result3, `a.wx;`);
+
+    let code4 = `{wx:'key'}`
+    let result4 = jsToAlipay(code4)
+
+    assert(result4.includes('wx'))
+  })
 })

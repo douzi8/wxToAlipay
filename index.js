@@ -31,7 +31,7 @@ function jsToAliHelp (relative, code) {
   let destPath = path.relative(relative, 'myPolyfill.js').replace('../', '')
 
   // 追加polyfill
-   code = `var _myPolyfill = require('${destPath}')
+   code = `var _myPolyfill = require('${destPath}');
    ${code}
    `
 

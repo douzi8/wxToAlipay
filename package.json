@@ -1,6 +1,6 @@
 {
   "name": "wx-alipay",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "微信小程序转化为支付宝小程序",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,6 @@
     "babel-preset-es2015": "^6.24.1",
     "cssdom": "^1.0.21",
     "file-system": "^2.2.2",
-    "htmldom": "^3.0.2"
+    "htmldom": "^3.0.3"
   }
 }
