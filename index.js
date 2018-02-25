@@ -3,6 +3,7 @@ const wxssToAcss = require('./lib/wxss/index')
 const jsToAli = require('./lib/js/index')
 const appJson = require('./lib/json/app')
 const pageJson = require('./lib/json/page')
+const wxsToJs = require('./lib/wxs/index')
 const fs = require('file-system')
 const path = require('path')
 
@@ -143,6 +144,11 @@ function wxToalipay ({
           } else {
             contents = pageJson(contents)
           }
+          break
+        case 'wxs':
+          destFilepath = path.join(dest, relative.replace(/\.wxs$/, '.wxs.js'))
+          contents = wxsToJs(contents)
+          break
       }
 
       if (callback) {
