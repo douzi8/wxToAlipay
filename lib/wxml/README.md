@@ -40,6 +40,7 @@ wx:if          ==> a:if
 wx:elif        ==> a:elif
 wx:else        ==> a:else
 wx:for         ==> a:for
+wx:for-items   ==> a:for
 wx:for-index   ==> a:for-index
 wx:for-item    ==> a:for-item
 wx:key         ==> a:key
@@ -48,6 +49,7 @@ catchtap       ==> catchTap
 bindinput      ==> onInput
 bindchange     ==> onChange
 bindfocus      ==> onFocus
+bindsubmit     ==> onSubmit
 ```
 
 4. 支付宝``template``的子节点只能是一个而不是多个,并且不能是``block``标签
@@ -129,4 +131,10 @@ picker-view组件在支付宝小程序里面有默认样式，如果自己定义
     <view class="alipay_picker_view_item" wx:for="{{item}}" wx:for-item="child" wx:key="value">{{child.text}}</view>
   </picker-view-column>
 </picker-view>
+```
+
+10. icon组件部分type支付宝不支持，会导致整个页面无法渲染
+```
+<!-- 源码 -->
+<icon type="safe_success" size="45"/>
 ```
