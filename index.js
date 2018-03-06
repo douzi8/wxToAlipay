@@ -77,7 +77,11 @@ function copyPolyFill (dest) {
         ],
         comments: false,
       }).code
-      return contents;
+
+      let es = fs.readFileSync('./lib/js/es.polyfill.js', { encoding: 'utf8' })
+
+      return `${es}
+${contents.trim()}`;
     }
   });
 

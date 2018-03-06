@@ -1,6 +1,6 @@
 {
   "name": "wx-alipay",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "微信小程序转化为支付宝小程序",
   "main": "index.js",
   "scripts": {

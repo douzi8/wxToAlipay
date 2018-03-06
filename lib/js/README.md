@@ -1,5 +1,5 @@
 ## Javascript
-``注意:`` 由于小程序之间的API不是完全对等, 打包会强制在支付宝小程序根目录生成一个[myPolyfill](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/polyfill.js)模块用于处理小程序参数的映射
+``注意:`` 由于小程序之间的API不是完全对等, 打包会强制在支付宝小程序根目录生成一个[my.polyfill](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/polyfill.js)模块用于处理小程序参数的映射
 ```JavaScript
 module.exports = {
   previewImage,
@@ -149,3 +149,5 @@ my.showActionSheet(_myPolyfill.showActionSheet(options))
 ```
 
 14. 支付宝不支持Reflect, 自动追加reflect.js到支付宝小程序项目
+
+15. 支付宝不支持Array.prototype.find, 参考[es.polyfill.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/es.polyfill.js)
