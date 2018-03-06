@@ -147,3 +147,5 @@ wx.showActionSheet(options)
 ```JavaScript
 my.showActionSheet(_myPolyfill.showActionSheet(options))
 ```
+
+14. 支付宝不支持Reflect, 自动追加reflect.js到支付宝小程序项目

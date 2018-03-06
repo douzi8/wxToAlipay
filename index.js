@@ -28,14 +28,16 @@ function getDest (src) {
 }
 
 function jsToAliHelp (relative, code) {
-  let destPath = path.relative(relative, 'myPolyfill.js').replace('../', '')
+  let destPath = path.relative(relative, 'my.polyfill.js').replace('../', '')
 
   // 追加polyfill
    code = `var _myPolyfill = require('${destPath}');
    ${code}
    `
 
-  code = jsToAli(code)
+  code = jsToAli(code, {
+    relative
+  })
 
   return code
 }
@@ -61,12 +63,12 @@ function printWarn (warn) {
 }
 
 // 复制polyfill到根目录
-function copyPolyFill (dest, callback) {
+function copyPolyFill (dest) {
   console.log('复制polyfill到根目录')
 
   const babel = require("babel-core")
 
-  fs.copyFileSync('./lib/js/polyfill.js', path.join(dest, 'myPolyfill.js'), {
+  fs.copyFileSync('./lib/js/polyfill.js', path.join(dest, 'my.polyfill.js'), {
     process: function(contents) {
       // 第一次批量处理
       contents =  babel.transform(contents, {
@@ -75,14 +77,12 @@ function copyPolyFill (dest, callback) {
         ],
         comments: false,
       }).code
-
-      if (callback) {
-        contents = callback(contents, 'polyfill.js')
-      }
-  
       return contents;
     }
   });
+
+  // 复制Reflect
+  fs.copyFileSync('./lib/js/reflect.js', path.join(dest, 'my.reflect.js'))
 }
 
 function wxToalipay ({
@@ -167,7 +167,7 @@ function wxToalipay ({
     }
   });
 
-  copyPolyFill(dest, callback)
+  copyPolyFill(dest)
 
   printWarn(warn)
 }

@@ -138,3 +138,10 @@ picker-view组件在支付宝小程序里面有默认样式，如果自己定义
 <!-- 源码 -->
 <icon type="safe_success" size="45"/>
 ```
+11. data-开头，支付宝不支持大写
+```
+<!-- 源码 -->
+<view data-alpha-beta="1" data-alphaBeta="2">
+<!-- 打包 -->
+<view data-alpha-beta="1" data-alphabeta="2">
+```

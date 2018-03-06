@@ -50,4 +50,11 @@ describe('属性替换', function() {
 
     assert.equal(result, `<view catchTap onInput onChange onFocus>Click me!</view>`);
   })
+
+  it('data', () => {
+    let code = `<view data-alpha-beta="1" data-alphaBeta="2"></view>`
+    let result = wxmlToAxml(code)
+
+    assert.equal(result, `<view data-alpha-beta="1" data-alphabeta="2"></view>`);
+  })
 })
