@@ -31,6 +31,8 @@ wxToalipay({
   src: '/Users/liaowei/Documents/code/weixin/all',
   // 可缺省
   dest: '/Users/liaowei/Documents/code/weixin/all_alipay',
+  // 可缺省，是否开启svg资源转成png图片
+  svgToImage: false,
   // 可缺省,数组, 排除资源
   filter: [
     '!lizard/package/**/*',
@@ -58,6 +60,7 @@ wxToalipay({
 1. [wxml](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxml/README.md)
 1. [wxss](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxss/README.md)
 1. [wxs](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxs/README.md)
+1. [svg](https://github.com/douzi8/wxToAlipay/blob/master/lib/svg/README.md)
 
 ## 插件
 1. 主要使用bable插件完成Js语法替换，参考[babel-types](https://github.com/jamiebuilds/babel-types), [babel-template](https://github.com/babel/babel/tree/master/packages/babel-template), [babel-generator](https://github.com/babel/babel/tree/master/packages/babel-generator), [babel-traverse](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-traverse) 

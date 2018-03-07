@@ -4,6 +4,7 @@ const jsToAli = require('./lib/js/index')
 const appJson = require('./lib/json/app')
 const pageJson = require('./lib/json/page')
 const wxsToJs = require('./lib/wxs/index')
+const svgToPng = require('./lib/svg/index')
 const fs = require('file-system')
 const path = require('path')
 
@@ -93,6 +94,7 @@ function wxToalipay ({
   src,
   dest,
   filter,
+  svgToImage,
   callback
 }) {
   if (!src) {
@@ -108,7 +110,7 @@ function wxToalipay ({
   }
 
   filter = [
-    '**/*.{js,wxss,wxml, wxs,json, svg, png, jpg}',
+    '**/*.{js,wxss,wxml, wxs,json, png, jpg}',
     '!node_modules/**/*',
   ].concat(filter)
 
@@ -140,7 +142,10 @@ function wxToalipay ({
           break
         case 'wxml':
           destFilepath = path.join(dest, relative.replace(/\.wxml$/, '.axml'));
-          contents = wxmlToAxml(contents, warn[relative])
+          contents = wxmlToAxml(contents, {
+            svgToImage,
+            warn: warn[relative]
+          })
           break
         case 'json':
           if (relative === 'app.json') {
@@ -174,6 +179,19 @@ function wxToalipay ({
   copyPolyFill(dest)
 
   printWarn(warn)
+
+  if (svgToImage) {
+    let svgfiles = {}
+
+    fs.recurseSync(src, ['**/*.svg'], function(filepath, relative, filename) {
+      svgfiles[filepath] = path.join(dest, path.dirname(relative), '_svg')
+    })
+
+    console.log('***svg打包成png***')
+    svgToPng(svgfiles)
+  }
 }
+
+
 
 module.exports = wxToalipay
