@@ -148,6 +148,10 @@ wx.showActionSheet(options)
 my.showActionSheet(_myPolyfill.showActionSheet(options))
 ```
 
-14. 支付宝不支持Reflect, 自动追加reflect.js到支付宝小程序项目
-
-15. 支付宝不支持Array.prototype.find, 参考[es.polyfill.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/es.polyfill.js)
+14. 支付宝不支持的es特性如下, 参考[es.polyfill.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/es.polyfill.js)
+```JavaScript
+Reflect
+Array.prototype.find
+String.prototype.startsWith
+String.prototype.endsWith
+```

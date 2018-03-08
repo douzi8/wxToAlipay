@@ -36,4 +36,11 @@ describe('标签名替换', function() {
 
     assert.equal(result, `<view class="alipay_footer"></view>`);
   })
+
+  it('cover-view', () => {
+    let code = `<map><cover-view></cover-view></map><image/>`
+    let result = wxmlToAxml(code)
+
+    assert.equal(result, `<map></map><view class="alipay_cover-view"></view><image/>`);
+  })
 })

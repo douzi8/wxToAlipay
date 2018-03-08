@@ -87,7 +87,7 @@ ${contents.trim()}`;
   });
 
   // 复制Reflect
-  fs.copyFileSync('./lib/js/reflect.js', path.join(dest, 'my.reflect.js'))
+  fs.copyFileSync('./lib/js/es.reflect.js', path.join(dest, 'es.reflect.js'))
 }
 
 function wxToalipay ({

@@ -145,3 +145,15 @@ picker-view组件在支付宝小程序里面有默认样式，如果自己定义
 <!-- 打包 -->
 <view data-alpha-beta="1" data-alphabeta="2">
 ```
+
+12. 支付宝不支持cover-view
+```html
+<!-- 源码 -->
+<map>
+  <cover-view>
+  </cover-view>
+</map>
+<!-- 打包 -->
+<map></map>
+<view></view>
+```
