@@ -13,7 +13,7 @@ describe('wx', function() {
     let code = `wx.makePhoneCall(options)`
     let result = jsToAlipay(code)
 
-    assert.equal(result, `my.makePhoneCall(_myPolyfill.makePhoneCall(options));`);
+    assert.equal(result, `_myShim("makePhoneCall", options);`);
   })
 
   it('字符串替换', () => {
@@ -22,6 +22,7 @@ describe('wx', function() {
 
     assert.equal(result, `'alipay' === 'alipay';`);
   })
+
 
   it('全局替换', () => {
     let code = `Object.keys(wx)`

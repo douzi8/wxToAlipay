@@ -1,18 +1,5 @@
 ## Javascript
-``注意:`` 由于小程序之间的API不是完全对等, 打包会强制在支付宝小程序根目录生成一个[my.polyfill](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/polyfill.js)模块用于处理小程序参数的映射
-```JavaScript
-module.exports = {
-  previewImage,
-  makePhoneCall,
-  request,
-  getSystemInfo,
-  getSystemInfoSync,
-  showModal,
-  showToast,
-  showActionSheet
-  // ...
-}
-```
+``注意:`` 由于小程序之间的API不是完全对等, 打包会强制在支付宝小程序根目录生成一个[my.shim](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/shim.js)模块用于处理小程序API, 该文件可以自定义放在微信小程序源码里面
 
 1. 字符串``wxMin``统一替换为``alipay``, 部分不能替换的情况，可以采取在源码这样写代码打标记
 ```JavaScript
@@ -46,55 +33,27 @@ wx.api
 ```JavaScript
 my.api
 ```
-
-3. getStorageSync, setStorageSync, removeStorageSync, getStorageInfoSync
-```JavaScript
-wx.getStorageSync(key)
-
-wx.setStorageSync(key, result)
+3. wx\[name\](options)
+动态调用wx api
 ```
-  转为支付宝小程序语法
-```JavaScript
-my.getStorageSync({
-    key: key
-}).data
+// 源码
+wx[name](options)
 
-my.setStorageSync({
-  key: key,
-  data: result
-})
+// 打包后
+_myShim.invoke(name, options)
 ```
 
-4. wx.request
-```JavaScript
+4. wx.request(options)
+静态调用wx api
+```
+// 源码
 wx.request(options)
-```
-  转为支付宝小程序语法
-```JavaScript
-my.httpRequest(_myPolyfill.request(options))
-```
-5. wx.setNavigationBarTitle, wx.setNavigationBarColor  
-替换为``my.setNavigationBar``
 
-6. wx.makePhoneCall
-```JavaScript
-wx.makePhoneCall(options)
-```
-  转为支付宝小程序语法
-```JavaScript
-my.makePhoneCall(_myPolyfill.makePhoneCall(options));
+// 打包后
+_myShim.invoke('request', options)
 ```
 
-7. wx.previewImage (参数不一致)
-```JavaScript
-wx.previewImage(options)
-```
-  转为支付宝小程序语法
-```JavaScript
-my.previewImage(_myPolyfill.previewImage(options))
-```
-
-8. require
+5. require
 ```JavaScript
 let local = require('local')
 ```
@@ -103,55 +62,15 @@ let local = require('local')
 let local = require('./local')
 ```
 
-9. wx.getSystemInfo
-```JavaScript
-wx.getSystemInfo(options)
-```
-  转为支付宝小程序语法
-```JavaScript
-my.getSystemInfo(_myPolyfill.getSystemInfo(options));
-```
-
-10. getSystemInfoSync
-```JavaScript
-var res = wx.getSystemInfoSync()
-```
-  转为支付宝小程序语法
-```JavaScript
-var res = _myPolyfill.getSystemInfoSync(my.getSystemInfoSync())
-```
-
-11. wx.showModal
-```
-wx.showModal(options)
-```
-  转为支付宝小程序语法
-```JavaScript
-_myPolyfill.showModal(options);
-```
-
-12. wx.showToast
-```
-wx.showToast(options)
-```
-  转为支付宝小程序语法
-```JavaScript
-my.showToast(_myPolyfill.showToast(options))
-```
-
-13. wx.showActionSheet
-```
-wx.showActionSheet(options)
-```
-  转为支付宝小程序语法
-```JavaScript
-my.showActionSheet(_myPolyfill.showActionSheet(options))
-```
-
-14. 支付宝不支持的es特性如下, 参考[es.polyfill.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/es.polyfill.js)
+6. 支付宝不支持的es特性如下, 参考[es.polyfill.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/es.polyfill.js)
 ```JavaScript
 Reflect
 Array.prototype.find
 String.prototype.startsWith
 String.prototype.endsWith
+String.prototype.includes
 ```
+
+## 定制shim.js
+1. 可以直接复制[my.shim](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/shim.js) 放入项目源码
+2. 指定打包参数shimPath,相对于项目源码目录

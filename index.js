@@ -29,10 +29,10 @@ function getDest (src) {
 }
 
 function jsToAliHelp (relative, code) {
-  let destPath = path.relative(relative, 'my.polyfill.js').replace('../', '')
+  let destPath = path.relative(relative, 'my.shim.js').replace('../', '')
 
   // 追加polyfill
-   code = `var _myPolyfill = require('${destPath}');
+   code = `var _myShim = require('${destPath}');
    ${code}
    `
 
@@ -64,12 +64,12 @@ function printWarn (warn) {
 }
 
 // 复制polyfill到根目录
-function copyPolyFill (dest) {
+function copyPolyFill (shimPath, dest) {
   console.log('复制polyfill到根目录')
 
   const babel = require("babel-core")
 
-  fs.copyFileSync('./lib/js/polyfill.js', path.join(dest, 'my.polyfill.js'), {
+  fs.copyFileSync(shimPath, path.join(dest, 'my.shim.js'), {
     process: function(contents) {
       // 第一次批量处理
       contents =  babel.transform(contents, {
@@ -95,6 +95,7 @@ function wxToalipay ({
   dest,
   filter,
   svgToImage,
+  shimPath,
   callback
 }) {
   if (!src) {
@@ -111,8 +112,13 @@ function wxToalipay ({
 
   filter = [
     '**/*.{js,wxss,wxml, wxs,json, png, jpg}',
+    '!project.config.json',
     '!node_modules/**/*',
   ].concat(filter)
+
+  if (shimPath) {
+    filter.push(`!${shimPath}`)
+  }
 
   // 删除dest
   if (fs.existsSync(dest)) {
@@ -176,7 +182,17 @@ function wxToalipay ({
     }
   });
 
-  copyPolyFill(dest)
+  if (shimPath) {
+    shimPath = path.join(src, shimPath)
+
+    if (!fs.existsSync(shimPath)) {
+      throw new Error(`定制参数shimPath，没有找到${shimPath}文件`)
+    }
+  } else {
+    shimPath = './lib/js/shim.js'
+  }
+
+  copyPolyFill(shimPath, dest)
 
   printWarn(warn)
 
