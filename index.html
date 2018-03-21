@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=720,target-densitydpi=device-dpi, user-scalable=no" />
+
+<title>测测你的油腻指数</title>
+<link rel="stylesheet" type="text/css" href="css/style.css?v=18">
+<link rel="stylesheet" type="text/css" href="js/cropper.min.css">
+<script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/pxloader-images.min.js"></script>
+<script>
+  var nickname="三哥";
+  var headimg="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJqicfelCu1Bibo761Mfyuqypo28iaiaQgzMqLLv2AM1umPLxPicj4m5aTtTPkTbL98HPWG01dApvW8wag/0";
+
+</script>
+</head>
+
+<body>
+  <div style="display: none;">
+    <audio id="audio" preload autoplay loop>
+        <source src="images/sound.mp3?v=1" type="audio/mpeg">
+    </audio>
+  </div>
+<div class="preload_con" id="preloadPage" style="display:none; ">
+  <div class="jz_title"></div>
+  <div class="loading_logo1">
+    <img src="images/jz_kb.png" />
+    <div class="loading_logo2" id="jindu">
+      <img src="images/jz_yd.png" />
+    </div>
+    <div class="precente" id="precente">0%</div>
+
+  </div>
+  <!-- <div class="jindu" id="jindu"></div> -->
+  <!-- <div class="precent" id="daojishi"></div> -->
+</div>
+<div id="loading" style="display: none;"></div>
+<input class="hide" style="display: none;" id="uploadImg" type="file"  accept="image/*">
+<div class="main">
+  <div id="music_start" style="position:absolute; top:2%; right:2%; z-index:500; width:6.6%; height:4.7%;">
+      <img src="images/start.png" />
+     </div>
+     <div id="music_stop" style="position:absolute; top:2%; right:2%; z-index:500; width:6.6%; height:4.7%; display:none;">
+      <img src="images/stop.png" />
+     </div>
+  <section id="bg1"  style="display: block;">
+    <div class="a1_title"></div>
+    <div class="a1_gif"></div>
+    <div class="a1_ms"></div>
+    <div class="a1_btn"></div>
+  </section>
+  <section id="bg2">
+    <div class="a2_1"></div>
+    <div class="a2_con">
+      <div class="a2_2"></div>
+      <div class="a2_3" data-xb="0"></div>
+      <div class="a2_4"></div>
+      <div class="a2_5"></div>
+      <div class="a2_6"></div>
+      <div class="a2_7" data-xb="0"></div>
+      <div class="a2_8" data-xb="0"></div>
+      <div class="a2_9"></div>
+      <div class="a2_10" data-xb="0"></div>
+    </div>
+    <div class="a2_11"></div>
+  </section>
+  <section id="bg3">
+    <div class="question" id="question1">
+      <div class="question1_bg"></div>
+      <div class="ask_con" id="ask1_con">
+        <div class="ask1_A"></div>
+        <div class="ask1_B"></div>
+        <div class="ask1_C"></div>
+      </div>
+    </div>
+    <div class="question" id="question2">
+      <div class="question2_bg"></div>
+      <div class="ask_con" id="ask2_con">
+        <div class="ask2_A"></div>
+        <div class="ask2_B"></div>
+        <div class="ask2_C"></div>
+      </div>
+    </div>
+    <div class="question" id="question3">
+      <div class="question3_bg"></div>
+      <div class="ask_con" id="ask3_con">
+        <div class="ask3_A"></div>
+        <div class="ask3_B"></div>
+        <div class="ask3_C"></div>
+      </div>
+    </div>
+    <div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+    <div class="queFooter"></div>
+  </section>
+  <section id="subject">
+    <div class="balloon"></div>
+    <div class="jiandao"></div>
+    <div class="jiandaoTips"></div>
+    <div class="obsequious"></div>
+    <div class="ballonXian"></div>
+  </section>
+  <section id="bg4">
+    <div class="uploadBg">
+      <div id="preview"></div>
+      <div class="clipBottom">
+        <div class="clipClose">
+        </div>
+        <div class="cropper-example-1 getImg" style="display: none;">
+          <img id="imgUrl2" src="" >
+        </div>
+      </div>
+      <div class="BgImgCon"></div>
+      <div class="btn_upload">
+        <img src="images/uploadHead.png">
+      </div>
+    </div>
+    <div class="uploadTit"></div>
+    <div class="btn_upload2"></div>
+    <div class="upload_btn1"></div>
+    <div class="upload_btn2"></div>
+    <div class="queFooter"></div>
+  </section>
+  <section id="bg5">
+    <div class="uploadBg">
+      <img src=""/>
+    </div>
+  </section>
+  <section id="tcAll">
+    <div class="selTypeImg">
+      <div class="cammer"></div>
+      <div class="wechatHead"></div>
+      <div class="btn_cancal"></div>
+    </div>
+  </section>
+  <section id="shareBg">
+    <div id="share_1"></div>
+    <div id="share_2"></div>
+  </div>
+  <div class="alert_con"></div>
+</div>
+<script type="text/javascript" src="js/mobileFix.mini.js"></script>
+<script type="text/javascript" src="js/exif.js"></script>
+<script type="text/javascript" src="js/lrz.js"></script>
+<script type="text/javascript" src="js/cropper.min.js?v=1"></script>
+<script type="text/javascript" src="js/jquery.transiti.min.js"></script>
+<script type="text/javascript" src="js/musicLoad.js"></script>
+<script type="text/javascript" src="js/main.js?v=34"></script>
+<script type="text/javascript">
+function rnd(min, max){
+  return min + Math.floor(Math.random() * (max - min + 1));
+}
+var queArr=[1,2,3,4,5,6,7,8,9,10];
+var queSelArr=[];
+for(var quei=0; quei<3;quei++){
+  var ranCoun=rnd(0,queArr.length-1);
+  queSelArr[quei]=queArr[ranCoun];
+  queArr.splice(ranCoun,1);
+  $(".question"+(quei+1)+"_bg").css({"background":"url(images/question_"+queSelArr[quei]+".gif?v=1) no-repeat center center","background-size":"contain"});
+  $("#ask"+(quei+1)+"_con").css({"background":"url(images/ask_"+queSelArr[quei]+".png) no-repeat center center","background-size":"contain"});
+}
+var loader = new PxLoader(); 
+var loader1 = new PxLoader(); 
+var baseImg="images/";
+var preloadImg=[
+  "images/bg.jpg",
+  "images/jz_yd.png",
+  "images/jz_kb.png",
+  "images/jz_title.png"
+];
+
+var imgArr=[
+  baseImg+"btn_kc.png",
+  baseImg+"p1_ms.png",
+  baseImg+"p1_title.png",
+  baseImg+"first.gif",
+  baseImg+"a2_1.png",
+  baseImg+"question_"+queSelArr[0]+".gif",
+  baseImg+"question_"+queSelArr[1]+".gif",
+  baseImg+"question_"+queSelArr[2]+".gif",
+  baseImg+"ask_"+queSelArr[0]+".png",
+  baseImg+"ask_"+queSelArr[1]+".png",
+  baseImg+"ask_"+queSelArr[2]+".png",
+];
+for(var peoIn=2; peoIn<11;peoIn++){
+  imgArr.push(baseImg+"a2_"+peoIn+".png");  
+}
+var addImagesForTag = function(loader,preloadImg) { 
+    for(var i=0; i < preloadImg.length; i++) { 
+        var imageUrl = preloadImg[i];
+        if(imageUrl){
+          pxImage = new PxLoaderImage(imageUrl); 
+          pxImage.imageNumber = i + 1; 
+          loader.add(pxImage); 
+        }
+            
+    }
+}; 
+addImagesForTag(loader,preloadImg); 
+addImagesForTag(loader1,imgArr); 
+loader.addCompletionListener(function () {
+  document.getElementById("preloadPage").style.display="block";
+  loader1.start();
+  loader1.addProgressListener(function(e) { 
+    var percent = Math.round((e.completedCount / e.totalCount) * 100);
+    document.getElementById("jindu").style.height = parseInt(percent) + "%";
+    document.getElementById("precente").innerHTML = parseInt(percent) + "%";
+  }); 
+  loader1.addCompletionListener(function () {
+    setTimeout(function(){
+      $(".main").fadeIn();
+      setTimeout(function(){
+        document.getElementById("preloadPage").style.display="none";
+        countLayout(".ask_con",w,h*0.2369,720,266,0,"contain");
+        countLayout(".uploadBg",w,h,720,1123,0,"contain");
+        countLayout(".selTypeImg",w,h*0.276,720,310,0,"contain");
+      },500)
+      defaulat();
+    },1000)
+  })
+})
+loader.start();
+document.addEventListener('DOMContentLoaded', function () {
+    function audioAutoPlay() {
+        var audio = document.getElementById('audio');
+            audio.play();
+   //          var timeID=setInterval(function(){
+      //     if(playList.length==1){
+      //      clearInterval(timeID);
+   //             playSound(playList[0],true,1);
+
+      //     }
+      // },300)
+        document.addEventListener("WeixinJSBridgeReady", function () {
+             audio.play();
+   //          var timeID=setInterval(function(){
+      //     if(playList.length==1){
+      //      clearInterval(timeID);
+   //             playSound(playList[0],true,1);
+      //     }
+      // },300)
+        }, false);
+    }
+    audioAutoPlay();
+});
+</script>
+<!--=======微信分享设置代码==========-->
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+eval(wx.config({
+debug: false,
+    appId: 'wxa737969472ae15b5',
+    timestamp: 1521600300,
+    nonceStr: 'QmjQjPTlTrKksjnT',
+    signature: 'c15dbbcaa817013f4e0957c41bf9927494d43984',
+    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','startRecord','stopRecord','onVoiceRecordEnd','playVoice','pauseVoice','stopVoice','onVoicePlayEnd','uploadVoice','downloadVoice','chooseImage','previewImage','uploadImage','downloadImage','translateVoice','openLocation','getNetworkType','getLocation','hideOptionMenu','showOptionMenu','hideMenuItems','showMenuItems','hideAllNonBaseMenuItem','showAllNonBaseMenuItem','closeWindow','scanQRCode','chooseWXPay','getLatestAddress','editAddress','openProductSpecificView','addCard','chooseCard','openCard']
+  }))
+//微信设置
+var shareData = {
+  "appId":"",
+  "imgUrl":'https://actx.itable.com.cn/jinlongyu/youniPhoto/images/xxx.jpg?v=2',
+  "link":'https://actx.itable.com.cn/jinlongyu/youniPhoto/index.php',//活动主页面
+  "title": '测测你的油腻指数',
+  "desc": '其实，小习惯已经偷偷暴露了你的油腻程度哦。',
+  success: function () { 
+  },
+  cancel: function () { 
+  }
+};
+wx.ready(function () {
+  wx.onMenuShareTimeline(shareData);
+  wx.onMenuShareAppMessage(shareData);
+  $("#audio").play();
+});
+wx.error(function(res){
+  // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+  // alert(res);
+});
+</script>
+
+<!--=======百度统计代码设置==========-->
+<div style="display:none">
+<!--新域名：actx.itable.com.cn-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?4d72f8ca711146d69911f8c8424cbd02";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</div>
+<!--=======公羽上尉加的代码==========-->
+</body>
+</html>

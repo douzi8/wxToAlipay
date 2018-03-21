@@ -11,7 +11,15 @@ var reg = getRegExp('d{1,4}', 'g')
 // 打包
 var reg = new RegExp('d{1,4}', 'g')
 ```
-3. wxml解析
+3. getDate变成new Date
+```JavaScript
+// 源码
+var time = getDate('2017-01-01')
+
+// 打包
+var time = new Date('2017-01-01')
+```
+4. wxml解析
 没有通用方案，只能自行想办法
 ```html
 <!-- 源码 -->
