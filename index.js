@@ -28,6 +28,10 @@ function getDest (src) {
   return paths.join(path.sep) 
 }
 
+function getFilePath (filepath) {
+  return path.join(__dirname, filepath)
+}
+
 function jsToAliHelp (relative, code) {
   let destPath = path.relative(relative, 'my.shim.js').replace('../', '')
 
@@ -79,7 +83,7 @@ function copyPolyFill (shimPath, dest) {
         comments: false,
       }).code
 
-      let es = fs.readFileSync('./lib/js/es.polyfill.js', { encoding: 'utf8' })
+      let es = fs.readFileSync(getFilePath('lib/js/es.polyfill.js'), { encoding: 'utf8' })
 
       return `${es}
 ${contents.trim()}`;
@@ -87,7 +91,7 @@ ${contents.trim()}`;
   });
 
   // 复制Reflect
-  fs.copyFileSync('./lib/js/es.reflect.js', path.join(dest, 'es.reflect.js'))
+  fs.copyFileSync(getFilePath('lib/js/es.reflect.js'), path.join(dest, 'es.reflect.js'))
 }
 
 function wxToalipay ({
@@ -189,7 +193,7 @@ function wxToalipay ({
       throw new Error(`定制参数shimPath，没有找到${shimPath}文件`)
     }
   } else {
-    shimPath = './lib/js/shim.js'
+    shimPath = getFilePath('lib/js/shim.js')
   }
 
   copyPolyFill(shimPath, dest)
