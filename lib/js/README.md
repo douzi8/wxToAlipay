@@ -2,9 +2,7 @@
 ``注意:`` 由于小程序之间的API不是完全对等, 打包会强制在支付宝小程序根目录生成一个[shim.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/shim.js)模块用于处理小程序API, 该文件可以自定义放在微信小程序源码里面
 
 ## 如何定制shim.js
-1. 可以直接复制[shim.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/shim.js) 放入项目源码
-2. 指定打包参数shimPath,相对于项目源码目录
-3. 如果不指定参数shimPath, 则使用默认的[shim.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/shim.js)
+1. 复制[shim.custom.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/shim.custom.js)到[shim.js](https://github.com/douzi8/wxToAlipay/blob/master/lib/js/shim.js)中
 
 ## Js转化规则
 1. 字符串``wxMin``统一替换为``alipay``, 部分不能替换的情况，可以采取在源码这样写代码打标记

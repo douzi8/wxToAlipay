@@ -3,10 +3,17 @@ var assert = require('assert')
 
 describe('wxsToJs', function() {
   it('getRegExp', () => {
-    let code = `getRegExp('d{1,4}', 'g')`
+    let code = `getRegExp("\d{16}", "g")`
     let result = wxsToJs(code)
 
-    assert.equal(result, `new RegExp('d{1,4}', 'g');`);
+    assert.equal(result, `/\d{16}/g;`);
+  })
+
+  it('getRegExp没有参数', () => {
+    let code = `getRegExp("\d{16}")`
+    let result = wxsToJs(code)
+
+    assert.equal(result, `/\d{16}/;`);
   })
 
   it('getDate', () => {

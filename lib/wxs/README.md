@@ -6,10 +6,10 @@
 2. getRegExp变成new RegExp
 ```JavaScript
 // 源码
-var reg = getRegExp('d{1,4}', 'g')
+var reg = getRegExp('\d{1,4}', 'g')
 
 // 打包
-var reg = new RegExp('d{1,4}', 'g')
+var reg = /\d{1,4}/g
 ```
 3. getDate变成new Date
 ```JavaScript

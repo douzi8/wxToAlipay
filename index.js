@@ -186,17 +186,8 @@ function wxToalipay ({
     }
   });
 
-  if (shimPath) {
-    shimPath = path.join(src, shimPath)
 
-    if (!fs.existsSync(shimPath)) {
-      throw new Error(`定制参数shimPath，没有找到${shimPath}文件`)
-    }
-  } else {
-    shimPath = getFilePath('lib/js/shim.js')
-  }
-
-  copyPolyFill(shimPath, dest)
+  copyPolyFill(getFilePath('lib/js/shim.js'), dest)
 
   printWarn(warn)
 

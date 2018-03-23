@@ -37,8 +37,6 @@ wxToalipay({
   filter: [
     '!lizard/package/**/*',
   ],
-  // 可缺省, 相对于src目录, 定制shim.js处理微信小程序的API
-  shimPath: 'vendor/shim.js',
   // 可缺省, 可在框架处理好后，在对每个文件进行处理
   callback (contents, relative) {
     return contents
