@@ -115,7 +115,7 @@ function wxToalipay ({
   }
 
   filter = [
-    '**/*.{js,wxss,wxml, wxs,json, png, jpg}',
+    `**/*.{js,wxss,wxml, wxs,json, png, jpg${svgToImage ? '': ',svg'}}`,
     '!project.config.json',
     '!node_modules/**/*',
   ].concat(filter)
