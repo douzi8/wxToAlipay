@@ -67,6 +67,9 @@ wxToalipay({
 1. [htmldom](https://github.com/douzi8/htmldom)完成wxml语法替换
 1. [file-system](https://github.com/douzi8/file-system)操作文件
 
+## 微信讨论群
+![微信群](https://raw.githubusercontent.com/douzi8/wxToAlipay/master/demo/qun.jpg)
+
 ## 乐车邦微信小程序
 ![微信小程序](https://raw.githubusercontent.com/douzi8/wxToAlipay/master/demo/lechebang.wx.jpg)
 
