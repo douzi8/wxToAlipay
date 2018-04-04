@@ -157,3 +157,13 @@ picker-view组件在支付宝小程序里面有默认样式，如果自己定义
 <map></map>
 <view></view>
 ```
+
+13. button 按钮默认追加 hover-class="none", 如果存在则不处理
+微信小程序的hover-class权重比自定义的低，支付宝的权重比自定义的高，造成现象不一致
+```html
+<!-- 源码 -->
+<button> default </button>
+
+<!-- 打包 -->
+<button hover-class="none"> default </button>
+```
