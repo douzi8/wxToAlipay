@@ -1,8 +1,7 @@
 const wxmlToAxml = require('./lib/wxml/index')
 const wxssToAcss = require('./lib/wxss/index')
 const jsToAli = require('./lib/js/index')
-const appJson = require('./lib/json/app')
-const pageJson = require('./lib/json/page')
+const parseJson = require('./lib/json/index')
 const wxsToJs = require('./lib/wxs/index')
 const svgToPng = require('./lib/svg/index')
 const fs = require('file-system')
@@ -158,11 +157,7 @@ function wxToalipay ({
           })
           break
         case 'json':
-          if (relative === 'app.json') {
-            contents = appJson(contents)
-          } else {
-            contents = pageJson(contents)
-          }
+          parseJson(contents, relative === 'app.json')
           break
         case 'wxs':
           destFilepath = path.join(dest, relative.replace(/\.wxs$/, '.sjs'))

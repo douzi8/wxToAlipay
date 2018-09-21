@@ -1,5 +1,4 @@
-var appConfig = require('../lib/json/app')
-var pageConfig = require('../lib/json/page')
+var parseJSON = require('../lib/json/index')
 var wxmlToAxml = require('../lib/wxml/index')
 var assert = require('assert')
 const path = require('path');
@@ -17,12 +16,12 @@ describe('资源路径替换', function() {
   it('lechebang', () => {
     let result = readFileSync('json/app.json')
 
-    writeFileSync('json/app.alipay.json', appConfig(result))
+    writeFileSync('json/app.alipay.json', parseJSON(result, true))
   })
 
   it('page', () => {
     let result = readFileSync('json/page.json')
 
-    writeFileSync('json/page.alipay.json', pageConfig(result))
+    writeFileSync('json/page.alipay.json', parseJSON(result, true))
   })
 })

@@ -1,4 +1,4 @@
 {
-  "defaultTitle": "紧急救援",
-  "pullRefresh": true
+  "navigationBarTitleText": "紧急救援",
+  "enablePullDownRefresh": true
 }
