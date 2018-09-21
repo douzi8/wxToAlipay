@@ -115,7 +115,7 @@ function wxToalipay ({
   }
 
   filter = [
-    `**/*.{js,wxss,wxml, wxs,json, png, jpg${svgToImage ? '': ',svg'}}`,
+    `**/*.{js,wxss,wxml, wxs,json, png, jpg, svg}`,
     '!project.config.json',
     '!node_modules/**/*',
   ].concat(filter)
@@ -165,7 +165,7 @@ function wxToalipay ({
           }
           break
         case 'wxs':
-          destFilepath = path.join(dest, relative.replace(/\.wxs$/, '.wxs.js'))
+          destFilepath = path.join(dest, relative.replace(/\.wxs$/, '.sjs'))
           contents = wxsToJs(contents)
           break
       }
@@ -191,16 +191,7 @@ function wxToalipay ({
 
   printWarn(warn)
 
-  if (svgToImage) {
-    let svgfiles = {}
-
-    fs.recurseSync(src, ['**/*.svg'], function(filepath, relative, filename) {
-      svgfiles[filepath] = path.join(dest, path.dirname(relative), '_svg')
-    })
-
-    console.log('***svg打包成png***')
-    svgToPng(svgfiles)
-  }
+ 
 }
 
 

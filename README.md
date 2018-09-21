@@ -31,8 +31,6 @@ wxToalipay({
   src: '/Users/liaowei/Documents/code/weixin/all',
   // 可缺省
   dest: '/Users/liaowei/Documents/code/weixin/all_alipay',
-  // 可缺省，是否开启svg资源转成png图片
-  svgToImage: false,
   // 可缺省,数组, 排除资源
   filter: [
     '!lizard/package/**/*',

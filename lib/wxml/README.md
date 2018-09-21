@@ -95,22 +95,30 @@ bindsubmit     ==> onSubmit
 </text>
 ```
 
-7. 支付宝小程序不支持``wxs`` (wxs标签全部直接删掉)  
-需自行处理JavaScript找出解决方案
+7. wxs标签替换
 ```html
-<wxs module="m1">
-var msg = "hello world";
-module.exports.message = msg;
+<!-- 源码 -->
+<wxs module="foo">
+var some_msg = "hello world";
+module.exports = {
+  msg : some_msg,
+}
 </wxs>
 
-<wxs src="../../widget/filter.wxs" module="filter" />
-
-<view>{{filter.date(time, 'yyyy-mm-dd')}}</view>
-<view data-price="{{price}}">{{filter.priceCent(price, 'yyyy-mm-dd')}}</view>
+<!-- 支付宝 -->
+<import-sjs name="foo">
+var some_msg = "hello world";
+module.exports = {
+  msg : some_msg,
+}
+</import-sjs>
 ```
-  转为支付宝小程序语法
 ```html
-<view>{{time}}</view>
+<!-- 源码 -->
+<wxs src="./../comm.wxs" module="some_comms"></wxs>
+
+<!-- 支付宝 -->
+<import-sjs from="./../comm.sjs" name="some_comms"></import-sjs>
 ```
 
 8. placeholder-style
