@@ -157,7 +157,7 @@ function wxToalipay ({
           })
           break
         case 'json':
-          parseJson(contents, relative === 'app.json')
+          contents = parseJson(contents, relative === 'app.json')
           break
         case 'wxs':
           destFilepath = path.join(dest, relative.replace(/\.wxs$/, '.sjs'))
