@@ -1,4 +1,5 @@
 const wxmlToAxml = require('./lib/wxml/index')
+const wxmlInclude = require('./lib/wxml/include')
 const wxssToAcss = require('./lib/wxss/index')
 const jsToAli = require('./lib/js/index')
 const parseJson = require('./lib/json/index')
@@ -93,6 +94,42 @@ ${contents.trim()}`;
   fs.copyFileSync(getFilePath('lib/js/es.reflect.js'), path.join(dest, 'es.reflect.js'))
 }
 
+function fixedWxmlInclude (dest) {
+  let appJson = fs.readFileSync(path.join(dest, 'app.json'), { encoding: 'utf8' })
+
+  appJson = JSON.parse(appJson)
+
+
+  let pagePath = []
+
+  appJson.pages.forEach(item => {
+    let wxmlpath = path.join(dest, item + '.axml')
+
+    pagePath.push(wxmlpath)
+
+    let code = fs.readFileSync(wxmlpath, { encoding: 'utf8' })
+
+    fs.writeFileSync(wxmlpath, wxmlInclude(code, dest, wxmlpath), { encoding: 'utf8' })
+  })
+
+  // 删掉非页面和非模块的模板
+  fs.recurseSync(dest, ['**/*.axml'], function(filepath) {
+    if (pagePath.includes(filepath)) return
+
+    let jsonPath = filepath.replace(/\.axml$/, '.json')
+
+    if (fs.existsSync(jsonPath)) {
+      let code = fs.readFileSync(jsonPath, { encoding: 'utf8' })
+
+      code = JSON.parse(code)
+
+      if (code.component) return
+    }
+
+    fs.unlinkSync(filepath)
+  });
+}
+
 function wxToalipay ({
   src,
   dest,
@@ -152,8 +189,9 @@ function wxToalipay ({
         case 'wxml':
           destFilepath = path.join(dest, relative.replace(/\.wxml$/, '.axml'));
           contents = wxmlToAxml(contents, {
-            svgToImage,
-            warn: warn[relative]
+            warn: warn[relative],
+            filepath,
+            root: dest
           })
           break
         case 'json':
@@ -184,9 +222,11 @@ function wxToalipay ({
 
   copyPolyFill(getFilePath('lib/js/shim.js'), dest)
 
-  printWarn(warn)
 
- 
+  // 解决include标签bug
+  fixedWxmlInclude(dest)  
+
+  printWarn(warn)
 }
 
 

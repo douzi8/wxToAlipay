@@ -52,24 +52,6 @@ bindfocus      ==> onFocus
 bindsubmit     ==> onSubmit
 ```
 
-4. 支付宝``template``的子节点只能是一个而不是多个,并且不能是``block``标签
-```html
-<template>
- <view wx:for="{{list}}">
- </view>
-</template>
-
-<template>
- <view>1</view>
- <view>2</view>
-</template>
-
-<template>
-  <block>
-    <view>1</view>
-  </block>
-</template>
-```
 
 5. ``a:for``和``a:if``不能再支付宝里面同时出现
 ```html
@@ -96,6 +78,8 @@ bindsubmit     ==> onSubmit
 ```
 
 7. wxs标签替换
+``import-sjs``在支付宝里面，必须提前写在顶部
+
 ```html
 <!-- 源码 -->
 <wxs module="foo">
@@ -174,4 +158,13 @@ picker-view组件在支付宝小程序里面有默认样式，如果自己定义
 
 <!-- 打包 -->
 <button hover-class="none"> default </button>
+```
+
+14. 支付宝include标签，不支持引入自定义组件, 比如
+```html
+// index.wxml
+<include src="./tmp.wxml" />
+
+// tmp.wxml
+<ui-button>自定义组件</ui-button>
 ```

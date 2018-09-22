@@ -49,7 +49,6 @@ wxToalipay({
 1. 部分不能转化的问题，需要源码里面做处理，主要表现在``js``文件
 1. 打包之前，会对源码进行代码校验，校验通过才能打包
 1. 部分微信小程序特性没法转化, 需自行处理
-- [自定义组件](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)
 - [web-view](https://mp.weixin.qq.com/debug/wxadoc/dev/component/web-view.html)
 
 ## 语法转化规则
@@ -59,6 +58,8 @@ wxToalipay({
 1. [wxss](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxss/README.md)
 1. [wxs](https://github.com/douzi8/wxToAlipay/blob/master/lib/wxs/README.md)
 1. [svg](https://github.com/douzi8/wxToAlipay/blob/master/lib/svg/README.md)
+1. [自定义组件](https://github.com/douzi8/wxToAlipay/blob/master/lib/component/README.md)
+
 
 ## 插件
 1. 主要使用bable插件完成Js语法替换，参考[babel-types](https://github.com/jamiebuilds/babel-types), [babel-template](https://github.com/babel/babel/tree/master/packages/babel-template), [babel-generator](https://github.com/babel/babel/tree/master/packages/babel-generator), [babel-traverse](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-traverse) 
