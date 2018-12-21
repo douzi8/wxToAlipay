@@ -78,7 +78,7 @@ function copyPolyFill (shimPath, dest) {
       // 第一次批量处理
       contents =  babel.transform(contents, {
         presets: [
-          ['es2015',  { modules: false }]
+          [require.resolve('babel-preset-es2015'),  { modules: false }]
         ],
         comments: false,
       }).code
