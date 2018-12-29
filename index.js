@@ -7,6 +7,7 @@ const wxsToJs = require('./lib/wxs/index')
 const svgToPng = require('./lib/svg/index')
 const fs = require('file-system')
 const path = require('path')
+const posix = require('ensure-posix-path')
 
 
 // 获取文件格式
@@ -33,7 +34,7 @@ function getFilePath (filepath) {
 }
 
 function jsToAliHelp (relative, code) {
-  let destPath = path.relative(relative, 'my.shim.js').replace('../', '')
+  let destPath = `./${posix(path.relative(path.dirname(relative), 'my.shim.js'))}`
 
   // 追加polyfill
    code = `var _myShim = require('${destPath}');
